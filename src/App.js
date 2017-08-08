@@ -21,7 +21,9 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className="app">
-				<ListBooks books={this.state.books} updateBooks={this.state.updateBooks}/>
+				<ListBooks books={this.state.books} 
+					updateBooks={this.updateBooks}
+					/>
 			</div>
 		)
 	}
