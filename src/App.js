@@ -14,10 +14,14 @@ class App extends React.Component {
     })
   }
 
+  updateBooks(book, shelf){
+  	BooksAPI.update(book, shelf)
+  }
+
 	render() {
 		return (
 			<div className="app">
-				<ListBooks books={this.state.books}/>
+				<ListBooks books={this.state.books} updateBooks={this.state.updateBooks}/>
 			</div>
 		)
 	}
