@@ -5,7 +5,8 @@ import BookShelf from './BookShelf'
 
 class App extends React.Component {
 	state = {
-		books: []
+		books: [],
+    query: ''
 	}
 
 	componentDidMount(){
