@@ -6,7 +6,7 @@ class BookShelf extends Component {
 	shelves = [
     { title : 'Want To Read', status: 'wantToRead' },
     { title : 'Currently Reading', status: 'currentlyReading' },
-    { title : 'Read', status: 'read' },
+    { title : 'Read', status: 'read' }
   ]
 
 	state = {
