@@ -2,6 +2,7 @@ import React from 'react'
 import * as BooksAPI from './BooksAPI'
 import './App.css'
 import BookShelf from './BookShelf'
+import { Route } from 'react-router-dom'
 
 class App extends React.Component {
 
@@ -33,58 +34,20 @@ class App extends React.Component {
   
   }
 
-    // console.log('this.state', this.state)
-    // const oldState = this.state.books
-    // console.log('oldState :', oldState)
-
-    // const newState = oldState.map(b => {
-    //   if(b.id === book.id)
-    //     b.shelf = shelf
-    //     console.log("b :", b)
-    // })
-
-
-
-
-
-    // this.setState( state => ({
-    //   books: state.map(b => {
-    //     if(b.id === book.id)
-    //       b.shelf = shelf
-    //   })
-    // }))
-
-
-
-
-    // console.log('calling updateBooks with book : ', book)
-    // console.log('all books :', books)
-
-    // let changeIdx = book.id
-    // let newState = oldState.map((b) => (
-    //   if(b.id === changeIdx){
-    //     b.shelf = shelf
-    //     console.log("b")
-    //   }
-    // ))
-
-    // this.setState( oldState )
-
-
-
-    // get the book from your books array
-    // change the shelf to the current shelf
-    // update your state object
-    // setState to the newState object
-  
-
   render() {
    return (
     <div className="app">
-      <BookShelf 
-        books={this.state.books} 
-        updateBooks={this.updateBooks}
-      />
+      <Route exact path="/" render={ () => (
+       <BookShelf 
+          books={this.state.books} 
+          updateBooks={this.updateBooks}
+        />
+      )}/>
+
+      <div className="open-search">
+        <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
+      </div>
+      
     </div>
    )
   }
@@ -92,3 +55,4 @@ class App extends React.Component {
 }
 
 export default App
+
