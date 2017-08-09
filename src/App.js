@@ -4,20 +4,19 @@ import './App.css'
 import BookShelf from './BookShelf'
 
 class App extends React.Component {
-	state = {
-		books: []
-	}
-
-	componentDidMount(){
+  state = {
+    books: []
+  }
+  
+  componentDidMount(){
     BooksAPI.getAll().then((books)=>{
       console.log("books :", books)
-      this.state = { books }
       this.setState({books})
     })
   }
 
   updateBooks(book, shelf){
-  	BooksAPI.update(book, shelf)
+    BooksAPI.update(book, shelf)
     const { books } = this.state
     console.log('calling updateBooks with book : ', book)
     console.log('all books :', books)
@@ -32,20 +31,19 @@ class App extends React.Component {
     // change the shelf to the current shelf
     // update your state object
     // setState to the newState object
-
-
   }
 
-	render() {
-		return (
-			<div className="app">
-				<BookShelf 
-          books={this.state.books} 
-					updateBooks={this.updateBooks}
-					/>
-			</div>
-		)
-	}
+  render() {
+   return (
+    <div className="app">
+      <BookShelf 
+        books={this.state.books} 
+        updateBooks={this.updateBooks}
+      />
+    </div>
+   )
+  }
+  
 }
 
 export default App
