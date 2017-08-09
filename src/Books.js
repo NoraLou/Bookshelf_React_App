@@ -1,5 +1,10 @@
 import React, { Component } from 'react'
 
+//TODO refactor a componont that is rowBooks.
+//TODO refactor a componant this is a single book.
+
+
+
 class Books extends Component {
 
   //loop over array to make the select boxes ?
@@ -22,16 +27,8 @@ class Books extends Component {
               <div className="book-top">
                 <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})` }}></div>
                 <div className="book-shelf-changer">
-                  <select onChange={(event) => updateBooks( book, event.target.value) }>
+                  <select onChange={(event) => updateBooks( book, event.target.value) }  value={book.shelf}>
                     <option value="none" disabled> Move to...</option>
-                    {this.availSelectOptions.map( (option) => (
-                      <option 
-                        {option.value === book.shelf 
-                          && selected }
-                        value={option.value}>
-                        {option.label}
-                      </option>
-                    ))}
                     <option value="currentlyReading">Currently Reading</option>
                     <option value="wantToRead">Want to Read</option>
                     <option value="read">Read</option>
