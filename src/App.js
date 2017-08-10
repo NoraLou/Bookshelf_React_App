@@ -11,6 +11,7 @@ class App extends React.Component {
     super(props);
     // this.state = { books: [] }
     this.updateBooks = this.updateBooks.bind(this)
+    this.searchBooks = this.searchBooks.bind(this)
   }
 
   state = {books:[]}
