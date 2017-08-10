@@ -17,6 +17,7 @@ class App extends React.Component {
   state = {books:[]}
 
   componentDidMount(){
+    console.log("calling component DidMount")
     BooksAPI.getAll().then((books)=>{
       this.setState({books})
       console.log("books :", books)
@@ -38,14 +39,14 @@ class App extends React.Component {
     });
   }
 
-  searchBooks(query){
-    console.log('searchQuery :', query)
-    BooksAPI.search(query)
-    .then((data) => {
-      this.setState({books:data})
-      console.log("searchData :", data)
-    })
-  }
+  // searchBooks(query){
+  //   console.log('searchQuery :', query)
+  //   BooksAPI.search(query)
+  //   .then((data) => {
+  //     this.setState({books:data})
+  //     console.log("searchData :", data)
+  //   })
+  // }
 
   render() {
    return (
@@ -55,7 +56,7 @@ class App extends React.Component {
         <SearchBooks
           books={this.state.books}
           updateBook={this.updateBooks}
-          searchBooks={this.searchBooks}
+          // searchBooks={this.searchBooks}
         />
         )}>
       </Route>
