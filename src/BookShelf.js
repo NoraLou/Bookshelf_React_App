@@ -5,17 +5,15 @@ import { Link } from 'react-router-dom'
 
 class BookShelf extends Component {
 
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {showSearchPage:false};
-  // }
-
-
   shelves = [
     { title : 'Currently Reading', status: 'currentlyReading' },
     { title : 'Want To Read', status: 'wantToRead' },
     { title : 'Read', status: 'read' }
   ]
+
+  componentDidMount() {
+    this.props.getBookShelf()
+  }
 
   render () {
 
@@ -32,11 +30,10 @@ class BookShelf extends Component {
             />
         ))}
 
-        <div className="open-search" style={{background:'yellow'}}>
+        <div className="open-search">
           <Link to="/search">
           </Link>
         </div> 
-
       </div>
     )//
   }

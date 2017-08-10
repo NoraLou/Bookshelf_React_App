@@ -9,19 +9,21 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
-    // this.state = { books: [] }
+    this.getBookShelf = this.getBookShelf.bind(this)
     this.updateBooks = this.updateBooks.bind(this)
+    this.searchBooks = this.searchBooks.bind(this)
+  }
+
+  
+  getBookShelf() {
+    BooksAPI.getAll().then((books)=>{
+      console.log("response from GET BOOK SHELF : ", books)
+      this.setState({books})
+      // console.log("books :", books)
+    })
   }
 
   state = {books:[]}
-
-  componentDidMount(){
-    console.log("calling component DidMount")
-    BooksAPI.getAll().then((books)=>{
-      this.setState({books})
-      console.log("books :", books)
-    })
-  }
 
   updateBooks(bookChange, shelfChange) {
     BooksAPI.update(bookChange, shelfChange)
@@ -38,14 +40,22 @@ class App extends React.Component {
     });
   }
 
-  // searchBooks(query){
-  //   console.log('searchQuery :', query)
-  //   BooksAPI.search(query)
-  //   .then((data) => {
-  //     this.setState({books:data})
-  //     console.log("searchData :", data)
-  //   })
-  // }
+  searchBooks(query){
+    if(query) {
+      console.log('searchQuery :', query)
+      BooksAPI.search(query)
+      .then((resp) => {
+        console.log('response from Search books:', resp)
+        if (resp.error) {
+          this.setState({ books:[]})
+        } else {
+          this.setState({ books:resp} )
+        }
+      })
+    } else {
+      this.setState({ books: [] });
+    } 
+  }
 
   // searchBooks={this.searchBooks}
 
@@ -57,6 +67,7 @@ class App extends React.Component {
         <SearchBooks
           books={this.state.books}
           updateBook={this.updateBooks}
+          searchBooks={this.searchBooks}
         />
         )}>
       </Route>
@@ -65,6 +76,7 @@ class App extends React.Component {
        <BookShelf 
           books={this.state.books} 
           updateBooks={this.updateBooks}
+          getBookShelf={this.getBookShelf}
         />
       )}/>
     </div>
