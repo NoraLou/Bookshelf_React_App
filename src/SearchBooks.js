@@ -5,20 +5,33 @@ import * as BooksAPI from './BooksAPI'
 
 class SearchBooks extends Component {
 
-  // constructor(props) {
-  //   super(props);
-  //   this.state = { : [] }
-  // }	
+
   state = {
-  	query:''
+  	query:'',
   	searchBooks:[]
+  }
+
+  searchBooks(query){
+    console.log('searchQuery :', query)
+    BooksAPI.search(query)
+    .then((data) => {
+    	if (data.error) {
+    		this.setState({searchBooks:[]})
+    		return false
+    	} else {
+    		if (data.length) {
+    			this.setState({searchBooks:data})
+    		}
+    	}
+    })
+    console.log('this.state', this.state)
   }
 
   //state updating the search value in the input field
   updateQuery = (value) => {
   	this.setState({query:value.trim()})
   	if (this.state.query) {
-  		this.props.searchBooks(this.state.query)  		
+  		this.searchBooks(this.state.query)  		
   	}
   }
 
@@ -30,12 +43,13 @@ class SearchBooks extends Component {
 
 		const { books, updateBook} = this.props
 		const { query } = this.state
+		const { searchBooks } = this.state
 
 		return (
 
 			<div className="search-books">
         <div className="search-books-bar">
-          <Link className="close-search" onClick={console.log('click')} to="/">Close</Link>
+          <Link className="close-search" to="/">Close</Link>
           <div className="search-books-input-wrapper">
             <input 
             	type="text" 
@@ -46,10 +60,10 @@ class SearchBooks extends Component {
           </div>
       	</div>
 
-
+      	{(query && searchBooks.length) && (
 	        <div className="search-books-results">
 	          <ol className="books-grid">
-	            {books.map((book) => (
+	            {searchBooks.map((book) => (
 	              <Book
 	                key={book.id}
 	                book={book}
@@ -58,6 +72,8 @@ class SearchBooks extends Component {
 	            ))}
 	          </ol>
 	        </div>
+	      )}
+
 
       </div>
 		)

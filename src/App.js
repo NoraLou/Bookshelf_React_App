@@ -11,7 +11,6 @@ class App extends React.Component {
     super(props);
     // this.state = { books: [] }
     this.updateBooks = this.updateBooks.bind(this)
-    this.searchBooks = this.searchBooks.bind(this)
   }
 
   state = {books:[]}
@@ -48,6 +47,8 @@ class App extends React.Component {
   //   })
   // }
 
+  // searchBooks={this.searchBooks}
+
   render() {
    return (
     <div className="app">
@@ -56,7 +57,6 @@ class App extends React.Component {
         <SearchBooks
           books={this.state.books}
           updateBook={this.updateBooks}
-          // searchBooks={this.searchBooks}
         />
         )}>
       </Route>
