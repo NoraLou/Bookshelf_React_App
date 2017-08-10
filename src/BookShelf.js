@@ -32,7 +32,7 @@ class BookShelf extends Component {
             />
         ))}
 
-        <div className="open-search">
+        <div className="open-search" style={{background:'yellow'}}>
           <Link to="/search">
           </Link>
         </div> 

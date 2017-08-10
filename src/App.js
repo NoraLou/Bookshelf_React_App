@@ -42,9 +42,8 @@ class App extends React.Component {
     console.log('searchQuery :', query)
     BooksAPI.search(query)
     .then((data) => {
-      let currState = this.state
-      console.log('searchData:', data )
       this.setState({books:data})
+      console.log("searchData :", data)
     })
   }
 
