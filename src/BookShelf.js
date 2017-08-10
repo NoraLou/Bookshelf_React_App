@@ -35,7 +35,7 @@ class BookShelf extends Component {
           </Link>
         </div> 
       </div>
-    )//
+    )
   }
 }
 
