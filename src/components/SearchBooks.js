@@ -11,7 +11,7 @@ class SearchBooks extends Component {
   }  
 
   state = {
-  	query:'',
+    query:'',
   }
 
   updateQuery = (value) => {
@@ -19,10 +19,9 @@ class SearchBooks extends Component {
     this.props.searchBooks(this.state.query);  		
   }
 
-	render() {
-
-		const { books, updateBook} = this.props;
-		const { query } = this.state;
+  render() {
+    const { books, updateBook} = this.props;
+    const { query } = this.state;
 
   return (
 
