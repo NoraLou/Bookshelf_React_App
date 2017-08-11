@@ -1,9 +1,9 @@
 import React from 'react'
-import * as BooksAPI from './BooksAPI'
+import * as BooksAPI from './util/BooksAPI'
 import './App.css'
-import BookShelf from './BookShelf'
+import BookShelf from './components/BookShelf'
 import { Route } from 'react-router-dom'
-import SearchBooks from './SearchBooks'
+import SearchBooks from './components/SearchBooks'
 
 class App extends React.Component {
 
@@ -82,7 +82,7 @@ class App extends React.Component {
       )}/>
     </div>
    )
-   
+
   }
 }
 
