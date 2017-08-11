@@ -15,7 +15,7 @@ npm install
 Once the installation finishes:
 ```
 npm start
-
+```
 A new browser window will open with the URL pointed to [localhost:3000](http://localhost:3000/) where you can interact with the app's interface.
 
 ### Built With
