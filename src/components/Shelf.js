@@ -1,12 +1,18 @@
 import React, { Component } from 'react'
 import Book from './Book'
-
+import PropTypes from 'prop-types'
 
 class Shelf extends Component {
 
+  static propTypes = {
+    books:  PropTypes.array.isRequired,
+    updateBooks: PropTypes.func.isRequired,
+    title: PropTypes.string.isRequired
+  } 
+
   render() {
 
-    const { status, title, books, updateBooks } = this.props
+    const { title, books, updateBooks } = this.props
 
     return (
       <div className="bookshelf" key={status}>

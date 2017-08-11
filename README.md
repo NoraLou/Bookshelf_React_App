@@ -5,7 +5,7 @@ This repo contains code for Udacity's out of class project for the React nanodeg
 ### Getting Started
 
 If you do not have Node installed please go to : 
-* [Nodejs.org](https://nodejs.org/en/) to install it. 
+[Nodejs.org](https://nodejs.org/en/) to install it. 
 
 ### Installing
 Run:

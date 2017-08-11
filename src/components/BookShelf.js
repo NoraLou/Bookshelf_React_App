@@ -1,9 +1,15 @@
 import React, { Component } from 'react'
 import Shelf from './Shelf'
 import { Link } from 'react-router-dom'
-
+import PropTypes from 'prop-types'
 
 class BookShelf extends Component {
+
+  static propTypes = {
+    books:  PropTypes.array.isRequired,
+    updateBooks: PropTypes.func.isRequired,
+    getBookShelf: PropTypes.func.isRequired
+  }
 
   shelves = [
     { title : 'Currently Reading', status: 'currentlyReading' },
