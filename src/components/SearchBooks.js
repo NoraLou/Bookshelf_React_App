@@ -15,29 +15,29 @@ class SearchBooks extends Component {
   }
 
   updateQuery = (value) => {
-  	this.setState({query:value.trim()})
-  	this.props.searchBooks(this.state.query)  		
+  	this.setState({query:value.trim()});
+  	this.props.searchBooks(this.state.query);  		
   }
 
 	render() {
 
-		const { books, updateBook} = this.props
-		const { query } = this.state
+		const { books, updateBook} = this.props;
+		const { query } = this.state;
 
-		return (
+  return (
 
-			<div className="search-books">
-        <div className="search-books-bar">
-          <Link className="close-search" to="/">Close</Link>
+    <div className="search-books">
+      <div className="search-books-bar">
+        <Link className="close-search" to="/">Close</Link>
           <div className="search-books-input-wrapper">
             <input 
-            	type="text" 
-            	placeholder="Search by title or author"
-            	value={query}
-            	onChange={(event) => this.updateQuery(event.target.value)}
-            	/>
+              type="text" 
+              placeholder="Search by title or author"
+              value={query}
+              onChange={(event) => this.updateQuery(event.target.value)}
+            />
           </div>
-      	</div>
+        </div>
 
         { (query) && (
           <div className="search-books-results">
@@ -47,16 +47,15 @@ class SearchBooks extends Component {
                   key={book.id}
                   book={book}
                   updateBook={updateBook}
-                />
+                 />
               ))}
             </ol>
           </div>
-	      )}
-
+        )}
       </div>
-		)
+    )
 
-	}
+  }
 }
 
 export default SearchBooks
