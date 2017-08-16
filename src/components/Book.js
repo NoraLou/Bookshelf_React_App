@@ -28,6 +28,12 @@ class Book extends Component {
                 </select>
               </div>
           </div>
+          <div className="book-title">{book.title}</div>
+          { (book.authors) && (
+            book.authors.map((author)=> (
+              <div className="book-authors" key={author}>{author}</div>
+            ))
+          )}
         </div> 
       </li>
     )
