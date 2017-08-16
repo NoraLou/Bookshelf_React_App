@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Book from './Book'
 import PropTypes from 'prop-types'
+import sortBy from 'sort-by'
 
 class Shelf extends Component {
 
@@ -14,6 +15,8 @@ class Shelf extends Component {
 
     const { title, books, updateBooks } = this.props
 
+    books.sort(sortBy('title'))
+    
     return (
       <div className="bookshelf" key={status}>
         <h2 className="bookshelf-title">{title}</h2>
